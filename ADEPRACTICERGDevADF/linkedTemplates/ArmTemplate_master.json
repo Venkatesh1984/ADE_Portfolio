@@ -1,0 +1,259 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADEPRACTICERGDevADF"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		},
+		"COPYFROMSQLTODATALAKE_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'COPYFROMSQLTODATALAKE'"
+		},
+		"LS_ADLSTOASQL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLSTOASQL'"
+		},
+		"LS_ASQL_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_ASQL'"
+		},
+		"LS_ASQL1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_ASQL1'"
+		},
+		"LS_ASQL_CSV_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_ASQL_CSV'"
+		},
+		"LS_COPYENTIREFOLDER_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_COPYENTIREFOLDER'"
+		},
+		"LS_COPYENTIREFOLDERTOOUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_COPYENTIREFOLDERTOOUTPUT'"
+		},
+		"LS_COPYFOLDER_INPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_COPYFOLDER_INPUT'"
+		},
+		"LS_DATALAKETOSQL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_DATALAKETOSQL'"
+		},
+		"LS_PASTEFOLDER_OUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_PASTEFOLDER_OUTPUT'"
+		},
+		"LS_datalaketo_ASQL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_datalaketo_ASQL'"
+		},
+		"SqlServer1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer1'",
+			"defaultValue": "Integrated Security=True;Data Source=DESKTOP-HFVGVI8\\MSSQLSERVER_LRN;Initial Catalog=TRAINING"
+		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"COPYFROMSQLTODATALAKE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_ADLSTOASQL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_COPYENTIREFOLDER_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_COPYENTIREFOLDERTOOUTPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_COPYFOLDER_INPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_DATALAKETOSQL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_PASTEFOLDER_OUTPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_datalaketo_ASQL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-HFVGVI8\\user"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADEPRACTICERGDevADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"AzureSqlDatabase2_connectionString": {
+						"value": "[parameters('AzureSqlDatabase2_connectionString')]"
+					},
+					"COPYFROMSQLTODATALAKE_accountKey": {
+						"value": "[parameters('COPYFROMSQLTODATALAKE_accountKey')]"
+					},
+					"LS_ADLSTOASQL_accountKey": {
+						"value": "[parameters('LS_ADLSTOASQL_accountKey')]"
+					},
+					"LS_ASQL_connectionString": {
+						"value": "[parameters('LS_ASQL_connectionString')]"
+					},
+					"LS_ASQL1_connectionString": {
+						"value": "[parameters('LS_ASQL1_connectionString')]"
+					},
+					"LS_ASQL_CSV_connectionString": {
+						"value": "[parameters('LS_ASQL_CSV_connectionString')]"
+					},
+					"LS_COPYENTIREFOLDER_accountKey": {
+						"value": "[parameters('LS_COPYENTIREFOLDER_accountKey')]"
+					},
+					"LS_COPYENTIREFOLDERTOOUTPUT_accountKey": {
+						"value": "[parameters('LS_COPYENTIREFOLDERTOOUTPUT_accountKey')]"
+					},
+					"LS_COPYFOLDER_INPUT_accountKey": {
+						"value": "[parameters('LS_COPYFOLDER_INPUT_accountKey')]"
+					},
+					"LS_DATALAKETOSQL_accountKey": {
+						"value": "[parameters('LS_DATALAKETOSQL_accountKey')]"
+					},
+					"LS_PASTEFOLDER_OUTPUT_accountKey": {
+						"value": "[parameters('LS_PASTEFOLDER_OUTPUT_accountKey')]"
+					},
+					"LS_datalaketo_ASQL_accountKey": {
+						"value": "[parameters('LS_datalaketo_ASQL_accountKey')]"
+					},
+					"SqlServer1_connectionString": {
+						"value": "[parameters('SqlServer1_connectionString')]"
+					},
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"COPYFROMSQLTODATALAKE_properties_typeProperties_url": {
+						"value": "[parameters('COPYFROMSQLTODATALAKE_properties_typeProperties_url')]"
+					},
+					"LS_ADLSTOASQL_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLSTOASQL_properties_typeProperties_url')]"
+					},
+					"LS_COPYENTIREFOLDER_properties_typeProperties_url": {
+						"value": "[parameters('LS_COPYENTIREFOLDER_properties_typeProperties_url')]"
+					},
+					"LS_COPYENTIREFOLDERTOOUTPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_COPYENTIREFOLDERTOOUTPUT_properties_typeProperties_url')]"
+					},
+					"LS_COPYFOLDER_INPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_COPYFOLDER_INPUT_properties_typeProperties_url')]"
+					},
+					"LS_DATALAKETOSQL_properties_typeProperties_url": {
+						"value": "[parameters('LS_DATALAKETOSQL_properties_typeProperties_url')]"
+					},
+					"LS_PASTEFOLDER_OUTPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_PASTEFOLDER_OUTPUT_properties_typeProperties_url')]"
+					},
+					"LS_datalaketo_ASQL_properties_typeProperties_url": {
+						"value": "[parameters('LS_datalaketo_ASQL_properties_typeProperties_url')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ADEPRACTICERGDevADF_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADEPRACTICERGDevADF_ArmTemplate_0')]"
+			]
+		}
+	]
+}

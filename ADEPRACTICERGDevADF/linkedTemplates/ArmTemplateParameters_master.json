@@ -1,0 +1,99 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADEPRACTICERGDevADF"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": ""
+		},
+		"COPYFROMSQLTODATALAKE_accountKey": {
+			"value": ""
+		},
+		"LS_ADLSTOASQL_accountKey": {
+			"value": ""
+		},
+		"LS_ASQL_connectionString": {
+			"value": ""
+		},
+		"LS_ASQL1_connectionString": {
+			"value": ""
+		},
+		"LS_ASQL_CSV_connectionString": {
+			"value": ""
+		},
+		"LS_COPYENTIREFOLDER_accountKey": {
+			"value": ""
+		},
+		"LS_COPYENTIREFOLDERTOOUTPUT_accountKey": {
+			"value": ""
+		},
+		"LS_COPYFOLDER_INPUT_accountKey": {
+			"value": ""
+		},
+		"LS_DATALAKETOSQL_accountKey": {
+			"value": ""
+		},
+		"LS_PASTEFOLDER_OUTPUT_accountKey": {
+			"value": ""
+		},
+		"LS_datalaketo_ASQL_accountKey": {
+			"value": ""
+		},
+		"SqlServer1_connectionString": {
+			"value": "Integrated Security=True;Data Source=DESKTOP-HFVGVI8\\MSSQLSERVER_LRN;Initial Catalog=TRAINING"
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"COPYFROMSQLTODATALAKE_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_ADLSTOASQL_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_COPYENTIREFOLDER_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_COPYENTIREFOLDERTOOUTPUT_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_COPYFOLDER_INPUT_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_DATALAKETOSQL_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_PASTEFOLDER_OUTPUT_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"LS_datalaketo_ASQL_properties_typeProperties_url": {
+			"value": "https://adedevadlsgen2.dfs.core.windows.net/"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "DESKTOP-HFVGVI8\\user"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
