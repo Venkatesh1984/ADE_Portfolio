@@ -1,0 +1,10 @@
+{
+	"name": "LS_ASQL_KV",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://ADEPRACTICEVK.vault.azure.net/"
+		}
+	}
+}
