@@ -1,0 +1,24 @@
+{
+	"name": "DS_ASQL_Foreach",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureSQL",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SinkFiles": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().SinkFiles",
+				"type": "Expression"
+			}
+		}
+	}
+}
